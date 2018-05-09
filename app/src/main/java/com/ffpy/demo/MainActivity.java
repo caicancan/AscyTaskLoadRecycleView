@@ -3,9 +3,12 @@ package com.ffpy.demo;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -147,8 +150,15 @@ public class MainActivity extends Activity {
                 mHandler.sendEmptyMessage(1);
             }
         });
-
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(COLNUM, StaggeredGridLayoutManager.VERTICAL));
+        //设置为列表
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        //设置的排版的方向
+        linearLayoutManager.setOrientation(GridLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager( linearLayoutManager);
+        //设置为网格布局
+          //  recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+            //设置为瀑布流
+        //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(COLNUM, StaggeredGridLayoutManager.VERTICAL));
     }
 
     private class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
