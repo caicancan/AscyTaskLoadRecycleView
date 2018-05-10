@@ -41,6 +41,7 @@ public class LunchActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.i("ccc","onStart");
+
     }
 
     @Override
