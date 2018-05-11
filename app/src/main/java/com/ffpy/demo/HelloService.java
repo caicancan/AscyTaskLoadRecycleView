@@ -18,6 +18,7 @@ public class HelloService extends Service {
         @Override
         public void show() throws RemoteException {
             Log.i("ccc","执行服务端的aidl");
+
         }
 
 
