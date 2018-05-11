@@ -1,13 +1,22 @@
 package com.ffpy.demo;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 public class LunchActivity extends AppCompatActivity {
 
@@ -17,6 +26,7 @@ public class LunchActivity extends AppCompatActivity {
         //怎么进行全屏设置
         setFullScreen();
         setContentView(R.layout.activity_lunch);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //设置全屏，进行弹出
@@ -33,9 +43,19 @@ public class LunchActivity extends AppCompatActivity {
         });
         Log.i("ccc","onCreate");
     }
+
+
+
+
+
+
     //设置全屏
     private void setFullScreen() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);// 隐藏标题
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
     }
+
 
     @Override
     protected void onStart() {

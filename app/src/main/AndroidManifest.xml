@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ffpy.demo">
+
     <!-- 联网权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,15 +14,24 @@
         <activity android:name=".LunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:label="MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        </activity>
+        <service
+            android:process=":remote"
+            android:name=".HelloService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                              <action android:name="com.ffpy.demo.HelloService"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
