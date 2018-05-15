@@ -7,6 +7,7 @@ import android.os.RemoteException;
 import android.util.Log;
 
 public class HelloService extends Service {
+
     IMyAidlInterface.Stub mStub = new IMyAidlInterface.Stub() {
         //aidl文件里面提供的方法
         @Override
@@ -18,7 +19,15 @@ public class HelloService extends Service {
         @Override
         public void show() throws RemoteException {
             Log.i("ccc","执行服务端的aidl");
+        }
 
+        @Override
+        public Beauty getBeauty() throws RemoteException {
+            Beauty beauty = new Beauty();
+            beauty.setAge(20);
+            beauty.setName("张三丰");
+            beauty.setSex("男");
+            return beauty;
         }
 
 
